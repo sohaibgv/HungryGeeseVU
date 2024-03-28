@@ -119,11 +119,11 @@ class State:
         for goose in self.geese.values():
             for pos in goose.poses[:-1]:  # not considering tail!
                 self.field[pos.x, pos.y] = 1
-                
+
             if self.geo.prox(goose.head) & self.food:
                 tail = goose.poses[-1]
                 self.field[tail.x, tail.y] = 1
-                
+
 
         self.my_goose = self.geese[self.index]
 
@@ -267,23 +267,23 @@ class FloodGoose(BaseAgent):
     def __init__(self, min_length=13):
         super().__init__()
         self.min_length = min_length
-        
+
     def step(self, state):
         result = None
-        
+
         if len(state.my_goose) < self.min_length:
             result = self.goto(state, lambda pos:pos in state.food)
         elif len(state.my_goose) >= 3:
             result = self.goto(state, lambda pos:pos==state.my_goose.poses[-1])
-            
+
         if result is None:
             result = self.random_step(state)
-            
+
         return result
-    
+
     def goto(self, state, test_func):
         result = None
-        
+
         pos_dists = {}
         for pos in self.next_poses(state):
             flood = flood_fill(state.field, [pos])
@@ -296,10 +296,10 @@ class FloodGoose(BaseAgent):
 
             if closest_pos not in state.danger_poses:
                 result = closest_pos
-                
+
         return result
-        
-    
+
+
     def random_step(self, state):
         next_poses = self.next_poses(state) - state.danger_poses - state.food
         if not next_poses:
@@ -310,11 +310,11 @@ class FloodGoose(BaseAgent):
 
                 if not next_poses:
                     next_poses = state.geo.prox(state.my_goose.head)
-                        
+
         result = random.choice(list(next_poses))
-        
+
         return result
-    
+
 
 agent = FloodGoose(min_length=8)
 
