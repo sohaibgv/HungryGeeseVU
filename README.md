@@ -11,11 +11,11 @@ deep learning. This setup ensures our experiments can be easily replicated.
 
 ### Experimentation setup
 
-**Step 1:** Clone the Github repository git clone https://github.com/sohaibgv/HungryGeeseVU.git
-**Step 2:** Navigate into the directory
-**Step 3:** Locate the environment.yml
-**Step 3:** Create a python Virtual Environment conda env create -f environment.yml
-**Step 4:** Activate Virtual Environment conda activate hungry geese
-**Step 5:** Confirm installed Dependencies conda env list
-**Step 6:** Start the Jupyter server jupyter notebook
-**Step 7:** Select a notebook and run it to reproduce experiments.
+- **Step 1:** Clone the Github repository git clone https://github.com/sohaibgv/HungryGeeseVU.git
+- **Step 2:** Navigate into the directory
+- **Step 3:** Locate the environment.yml
+- **Step 3:** Create a python Virtual Environment conda env create -f environment.yml
+- **Step 4:** Activate Virtual Environment conda activate hungry geese
+- **Step 5:** Confirm installed Dependencies conda env list
+- **Step 6:** Start the Jupyter server jupyter notebook
+- **Step 7:** Select a notebook and run it to reproduce experiments.
